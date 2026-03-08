@@ -58,11 +58,13 @@ When cloning elsewhere, update `~/.cursor/mcp.json`:
 ```json
 "google-play-iap": {
   "command": "node",
-  "args": ["C:/path/to/google-play-iap-mcp/dist/index.js"],
-  "cwd": "C:/path/to/google-play-iap-mcp",
+  "args": ["/path/to/google-play-iap-mcp/dist/index.js"],
+  "cwd": "/path/to/google-play-iap-mcp",
   "env": {
-    "GOOGLE_APPLICATION_CREDENTIALS": "C:/path/to/play-service-account.json",
-    "GOOGLE_PLAY_PACKAGE_NAME": "com.lspdev.official.lytquiz2"
+    "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your-service-account.json",
+    "GOOGLE_PLAY_PACKAGE_NAME": "com.example.yourapp"
   }
 }
 ```
+
+Replace placeholders with your actual paths and package name.

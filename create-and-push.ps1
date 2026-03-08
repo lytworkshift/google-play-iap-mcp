@@ -1,9 +1,10 @@
 # Create google-play-iap-mcp repo on GitHub and push
 # Requires: GITHUB_TOKEN env var (Settings > Developer settings > Personal access tokens)
 # Or run: gh auth login (then use gh repo create)
+# Replace YOUR_GITHUB_USERNAME with your GitHub username before running
 
 $repo = "google-play-iap-mcp"
-$user = "lytworkshift"
+$user = "YOUR_GITHUB_USERNAME"
 
 if ($env:GITHUB_TOKEN) {
     Write-Host "Creating repo via API..."

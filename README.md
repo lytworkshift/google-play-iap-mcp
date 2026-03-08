@@ -4,13 +4,13 @@ MCP server for creating Google Play in-app products and subscriptions via API—
 
 ## Setup
 
-1. **Service account**: Create a service account in Google Cloud with the Android Publisher API enabled. Download the JSON key and place it at `~/.google/play-service-account.json` (or set `GOOGLE_APPLICATION_CREDENTIALS`).
+1. **Service account**: Create a service account in Google Cloud with the Android Publisher API enabled. Download the JSON key and place it somewhere secure (e.g. `~/.google/credentials.json`).
 
 2. **Play Console**: Add the service account to your app in Play Console → Users and permissions → Invite new users. Grant "Manage orders and subscriptions" (or equivalent).
 
 3. **Environment variables**:
-   - `GOOGLE_APPLICATION_CREDENTIALS` – path to service account JSON
-   - `GOOGLE_PLAY_PACKAGE_NAME` – app package (default: `com.lspdev.official.lytquiz2`)
+   - `GOOGLE_APPLICATION_CREDENTIALS` – path to service account JSON (required)
+   - `GOOGLE_PLAY_PACKAGE_NAME` – your app package (e.g. `com.example.yourapp`)
 
 ## Cursor MCP config
 
@@ -19,14 +19,16 @@ Add to `~/.cursor/mcp.json`:
 ```json
 "google-play-iap": {
   "command": "node",
-  "args": ["C:/Users/LSPDev/google-play-iap-mcp/dist/src/index.js"],
-  "cwd": "C:/Users/LSPDev/google-play-iap-mcp",
+  "args": ["/path/to/google-play-iap-mcp/dist/index.js"],
+  "cwd": "/path/to/google-play-iap-mcp",
   "env": {
-    "GOOGLE_APPLICATION_CREDENTIALS": "C:/Users/LSPDev/.google/play-service-account.json",
-    "GOOGLE_PLAY_PACKAGE_NAME": "com.lspdev.official.lytquiz2"
+    "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your-service-account.json",
+    "GOOGLE_PLAY_PACKAGE_NAME": "com.example.yourapp"
   }
 }
 ```
+
+Replace `/path/to/` with your actual paths and `com.example.yourapp` with your app's package name.
 
 ## Tools
 
@@ -37,11 +39,11 @@ Add to `~/.cursor/mcp.json`:
 | `list_subscriptions` | List subscriptions |
 | `create_subscription` | Create a subscription (monthly P1M or yearly P1Y) |
 
-## LytQuiz product IDs
+## Example product IDs
 
-- `lytquiz_pro_monthly` – $2.99/mo (P1M)
-- `lytquiz_pro_yearly` – $19.99/yr (P1Y)
-- `lytquiz_pro_lifetime_` – $49.99 one-time (managed product)
+- `yourapp_pro_monthly` – subscription (P1M)
+- `yourapp_pro_yearly` – subscription (P1Y)
+- `yourapp_pro_lifetime` – one-time managed product
 
 ## Notes
 

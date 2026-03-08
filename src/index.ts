@@ -13,7 +13,7 @@ import { PlayClient } from './services/play-client.js';
 import { IapHandlers } from './handlers/iap.js';
 
 const credentialsPath = process.env.GOOGLE_APPLICATION_CREDENTIALS!;
-const packageName = process.env.GOOGLE_PLAY_PACKAGE_NAME ?? 'com.lspdev.official.lytquiz2';
+const packageName = process.env.GOOGLE_PLAY_PACKAGE_NAME ?? 'com.example.yourapp';
 
 class GooglePlayIapServer {
   private server: Server;
